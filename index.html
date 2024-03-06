@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obstacle Course</title>
+</head>
+<body>
+    <h1>Obstacle Course</h1>
+    <button onclick="startCourse()">Start Course</button>
+
+    <script>
+        function startCourse() {
+            // Assuming you have an API endpoint to start the course
+            fetch('/start_course')
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
